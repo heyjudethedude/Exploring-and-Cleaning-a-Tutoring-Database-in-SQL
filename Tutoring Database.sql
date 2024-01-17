@@ -64,10 +64,6 @@ SELECT COUNT(Curriculum)
 FROM student_profile
 WHERE Curriculum = 'UK'
 
--- Percentage of feedback sent per month - Shows the percentage of feedbacks sent out of total sessions per month.
-
-
-
 -- Join Two Tables -- Join the table and combine them for data visualization
 
 SELECT his.Date, his.Students, his.Topics, his.Feedback, 
