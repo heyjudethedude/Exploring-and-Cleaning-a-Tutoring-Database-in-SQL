@@ -20,19 +20,19 @@ ORDER BY 1, 4 DESC
 
 -- Total Sessions - Shows how many sessions were conducted in total.
 
-SELECT Count (Feedback)
+SELECT Count (Feedback) as total_sessions
 FROM lesson_history
 WHERE Date is not null
 
 -- Total Students - Shows how many distinct students are there in total.
 
-SELECT Count(Distinct(Students))
+SELECT Count(Distinct(Students)) as total_students
 FROM lesson_history
 WHERE Date is not null
 
 -- Total Sent Feedback 
 
-SELECT Count(Feedback)
+SELECT Count(Feedback) as Total_sent
 FROM lesson_history
 WHERE Feedback = 'sent'
 
@@ -60,7 +60,7 @@ Order by total_sessions DESC
 
 -- Frequency of students per curriculum - Shows the number students in a given curriculum, ie. UK, American, IB, SABIS
 
-SELECT COUNT(Curriculum)
+SELECT COUNT(Curriculum) as No_of_UK_students
 FROM student_profile
 WHERE Curriculum = 'UK'
 
