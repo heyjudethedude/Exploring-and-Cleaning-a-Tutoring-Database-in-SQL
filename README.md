@@ -1,4 +1,4 @@
-# Tutoring Database and Dashboard
+# Exploring Tutoring Database in SQL
   # Overview
  As a Math tutor, I faced a common challenge of efficiently tracking and managing crucial aspects of my job. I needed a comprehensive solution to monitor the total number of sessions, understand the demographics of my students, and keep a record of their lesson histories and feedback. To address these needs, I decided to embark on a data analysis project to create a database and dashboard that would provide valuable insights into my tutoring activities.
 
