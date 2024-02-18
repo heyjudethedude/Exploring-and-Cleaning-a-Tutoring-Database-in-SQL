@@ -1,7 +1,7 @@
 /*
 Tutoring Database Data Exploration 
 
-Skills used: Where, Count, Distinct, Joins, Case,  CTE's, Temp Tables, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types
+Skills used: Select, Where, Count, Distinct, Order by, Group by, Joins, Case,  CTE's, Temp Tables, Windows Functions, Aggregate Functions,
 
 */
 
@@ -11,7 +11,7 @@ FROM lesson_history
 SELECT * 
 FROM student_profile
 
- -- Select Data that we are going to be starting with
+ -- Select data that we are going to be starting with.
 
 SELECT Date, Students, Topics, Feedback
 FROM lesson_history
