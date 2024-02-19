@@ -1,4 +1,4 @@
-# Exploring Tutoring Database in SQL
+# Exploring and Cleaning a Tutoring Database in SQL
   ## Project Overview
  
   This project holds significant meaning for me, as it represents work I genuinely enjoyed. Before transitioning to a role as a data analyst, I served as a Mathematics tutor at a respected tuition center in Dubai. It's worth noting that my passion for working with numbers was already established during that time. As a Mathematics tutor, I faced the recurring challenge of efficiently tracking and managing crucial aspects of my responsibilities. A comprehensive solution was needed to monitor the total number of sessions, understand the demographics of my students, and keep meticulous records of their lesson histories and feedback. Aside from these, we were tasked to send feedback to at least 50% of our tutoring sessions every month and keeping track of the number of sent feedbacks was challenging.  To address these needs, I decided to embark on a data analysis project to create a database and dashboard that would provide valuable insights into my tutoring activities.
@@ -24,5 +24,8 @@
 ## Exploratory Data Analysis
 EDA involves exploring the dataset to answer key questions, such as:
   - What is total number of sessions in a day or in a month?
-  - 
- I wanted to know the total number of tutoring sessions conducted in a month, the total count of students, and detailed demographics such as year level and curriculum. Additionally, I aimed to track the daily and monthly feedback sent to students, identify my most frequent students, and create a system to visualize the lesson history for each student.
+  - What is the total number of students?
+  - What days are the busiest on my schedule?
+  - What are the year level and curriculum of my students?
+  - What is the percentage of sent feedback monthly?
+
