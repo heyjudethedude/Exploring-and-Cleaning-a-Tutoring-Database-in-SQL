@@ -1,3 +1,4 @@
+
 /* Introduction
 Tutoring Database Data Exploration and Cleaning using SQL
 Our project involves exploring and cleaning data from a tutoring database using SQL. 
@@ -36,27 +37,34 @@ SELECT Count(Distinct(Students)) as total_students
 FROM lesson_history
 WHERE Date is not null
 
--- Total Sent Feedback 
-
+/* Feedback Analysis:
+Next, we analyze feedback data by determining the total number of sessions with feedback, the total number of sessions with sent feedback, 
+	and the percentage of sent and pending feedback per month. 
+This allows us to understand the engagement and responsiveness of the students.
+*/
+	
 SELECT Count(Feedback) as Total_sent
 FROM lesson_history
 WHERE Feedback = 'sent'
 
--- Percentage of feedback sent per month - Shows the percentage of feedbacks sent out of total sessions per month.
+-- Percentage of feedback sent in specific month i.e November
 
 SELECT 
 (COUNT(CASE WHEN Feedback = 'sent' THEN 1 END) * 100.0) / COUNT(feedback) AS 'Sent Feedback Percentage'
 FROM lesson_history
 WHERE MONTH(Date) = 11 
 
--- Percentage of pending feedback per month - Shows the percentage of feedbacks still pending out of total sessions per month.
+-- Percentage of pending feedback per month
 
 SELECT 
 (COUNT(CASE WHEN Feedback = 'pending' THEN 1 END) * 100.0) / COUNT(feedback) AS 'Pending Feedback Percentage'
 FROM lesson_history
 WHERE MONTH(Date) = 10
 
--- Busiest day of the week - Shows the day of the week with the most number of sessions
+/* Busiest Day of the Week:
+Identifying the busiest day of the week involves grouping sessions by day and determining the day with the highest number of sessions. 
+This information can help optimize scheduling and resource allocation.
+*/
 
 SELECT TOP (1)
 DATENAME(dw, DATE) as busiest_day, Count(Feedback) as total_sessions
@@ -64,19 +72,26 @@ FROM lesson_history
 Group by  DATENAME(dw, DATE)
 Order by total_sessions DESC
 
--- Frequency of students per curriculum - Shows the number students in a given curriculum, ie. UK, American, IB, SABIS
+/* Curriculum-based Analysis:
+We explore the distribution of students across different curricula.
+This analysis provides insights into the concentration of students in specific educational programs.
+*/
 
-SELECT COUNT(Curriculum) as No_of_UK_students
+SELECT curriculum, COUNT(*) as curriculum_count
 FROM student_profile
-WHERE Curriculum = 'UK'
+WHERE curriculum is not null
+GROUP BY curriculum
 
--- Join Two Tables -- Join the table and combine them for data visualization
+/* Joining Tables for Comprehensive Analysis:
+To enrich our analysis, we combine the lesson history and student profile tables using a join operation. 
+This combined table includes relevant details such as date, students, topics, feedback, year level, curriculum, and study plan.
+*/
 
 SELECT his.Date, his.Students, his.Topics, his.Feedback, 
 prof.Year_level, prof.Curriculum, prof.study_plan
 FROM dbo.lesson_history as his
 Join dbo.student_profile as prof
-	On his.Students = prof.Name
+	On his.Students = prof.full_ame
 WHERE Date is not null
 ORDER BY 1, 4 DESC
 
