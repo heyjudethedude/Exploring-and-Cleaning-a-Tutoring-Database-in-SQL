@@ -1,30 +1,36 @@
-/*
-Tutoring Database Data Exploration 
-
-Skills used: Select, Where, Count, Distinct, Order by, Group by, Joins, Case,  CTE's, Temp Tables, Windows Functions, Aggregate Functions,
-
+/* Introduction
+Tutoring Database Data Exploration and Cleaning using SQL
+Our project involves exploring and cleaning data from a tutoring database using SQL. 
+We aim to extract valuable insights and perform necessary cleaning operations to enhance data quality. 
+The skills employed include various SQL commands such as Select, Where, Count, Distinct, Order by, Group by, 
+Joins, Case, CTE's, Temp Tables, Window Functions, and Aggregate Functions.
 */
 
+/* Initial Data Exploration
+We start by examining the lesson history data and student profiles. 
+The initial data selected includes sessions with non-null dates, focusing on key information like date, students, topics, and feedback. 
+This provides a clear view of the starting point for our analysis.
+*/
+	
 SELECT * 
 FROM lesson_history
 
 SELECT * 
-FROM student_profile
-
- -- Select data that we are going to be starting with.
+FROM student_profile 
 
 SELECT Date, Students, Topics, Feedback
 FROM lesson_history
 WHERE Date is not null
 ORDER BY 1, 4 DESC
 
--- Total Sessions - Shows how many sessions were conducted in total.
+/* Total Sessions and Students:
+We calculate the total number of sessions and the count of distinct students. 
+These metrics give us an overview of the overall activity within the tutoring database.
+*/
 
 SELECT Count (Feedback) as total_sessions
 FROM lesson_history
 WHERE Date is not null
-
--- Total Students - Shows how many distinct students are there in total.
 
 SELECT Count(Distinct(Students)) as total_students
 FROM lesson_history
