@@ -29,3 +29,8 @@ EDA involves exploring the dataset to answer key questions, such as:
   - What are the year level and curriculum of my students?
   - What is the percentage of sent feedback monthly?
 
+## Dashboard Creation with Tableau: 
+Utilizing the analyzed data, a dashboard was crafted in Tableau for visual representation, providing a comprehensive view of tutoring activities.
+
+This project showcases the fusion of tutoring expertise with data analysis skills, offering a powerful solution to enhance tutoring efficiency and decision-making.
+
