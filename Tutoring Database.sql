@@ -54,12 +54,23 @@ SELECT
 FROM lesson_history
 WHERE MONTH(Date) = 11 
 
--- Percentage of pending feedback per month
+-- Percentage of pending feedback in specific month i.e October
 
 SELECT 
 (COUNT(CASE WHEN Feedback = 'pending' THEN 1 END) * 100.0) / COUNT(feedback) AS 'Pending Feedback Percentage'
 FROM lesson_history
 WHERE MONTH(Date) = 10
+
+-- Percentage of sent feedback per month
+SELECT 
+	MONTH(Date) AS Month,
+    (COUNT(CASE WHEN Feedback = 'sent' THEN 1 END) * 100.0) / COUNT(*) AS SentFeedbackPercentage
+FROM 
+    lesson_history
+WHERE MONTH(date) is not null
+GROUP BY 
+    MONTH(Date)
+Order by Month;
 
 /* Busiest Day of the Week:
 Identifying the busiest day of the week involves grouping sessions by day and determining the day with the highest number of sessions. 
@@ -95,15 +106,18 @@ Join dbo.student_profile as prof
 WHERE Date is not null
 ORDER BY 1, 4 DESC
 
--- CTE
-
+/* Percentage of UK Students:
+Finally, using the CTE, we calculate the percentage of students following the UK curriculum. 
+This provides a detailed understanding of the composition of the student population.
+*/
+	
 WITH combinedtable as 
 (
 SELECT his.Date, his.Students, his.Topics, his.Feedback, 
 prof.Year_level, prof.Curriculum, prof.study_plan
 FROM dbo.lesson_history as his
 Join dbo.student_profile as prof
-	On his.Students = prof.Name
+	On his.Students = prof.full_name
 --WHERE Date is not null
 --ORDER BY 1, 4 DESC
 )
@@ -111,8 +125,11 @@ SELECT
 (COUNT(CASE WHEN Curriculum = 'UK' THEN 1 END) * 100.0) / COUNT(Curriculum) AS 'Percentage of UK Students'
 FROM combinedtable
 
-
-
+/*
+This SQL project facilitates data exploration, cleaning, and analysis, offering valuable insights into tutoring sessions, 
+student profiles, and feedback. 
+The results obtained can guide decision-making processes and optimizations within the tutoring program.
+*/
 
 
 
