@@ -1,4 +1,4 @@
-# Exploring and Cleaning a Tutoring Database in SQL
+# Exploring, Cleaning and Making a Tutoring Database Dashboard
   ## Project Overview
  
   This project holds significant meaning for me, as it represents work I genuinely enjoyed. Before transitioning to a role as a data analyst, I served as a Mathematics tutor at a respected tuition center in Dubai. It's worth noting that my passion for working with numbers was already established during that time. As a Mathematics tutor, I faced the recurring challenge of efficiently tracking and managing crucial aspects of my responsibilities. A comprehensive solution was needed to monitor the total number of sessions, understand the demographics of my students, and keep meticulous records of their lesson histories and feedback. Aside from these, we were tasked to send feedback to at least 50% of our tutoring sessions every month and keeping track of the number of sent feedbacks was challenging.  To address these needs, I decided to embark on a data analysis project to create a database and dashboard that would provide valuable insights into my tutoring activities.
